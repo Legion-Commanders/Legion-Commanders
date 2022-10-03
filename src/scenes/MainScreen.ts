@@ -1,4 +1,6 @@
 import Phaser from 'phaser'
+import Match from '../scripts/match'
+import Player from '../scripts/player'
 
 /** The first screen seen by the player... */
 export default class MainScreen extends Phaser.Scene {
@@ -13,11 +15,15 @@ export default class MainScreen extends Phaser.Scene {
 
     create() {
         const particles = this.add.particles('play-button')
-        const playButton = this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'play-button')
+        const playButton = this.add.image(
+            this.cameras.main.centerX,
+            this.cameras.main.centerY,
+            'play-button'
+        )
             .setOrigin(0.5)
             .setInteractive({ useHandCursor: true })
             .on('pointerup', () => {
-                this.scene.start('MatchScreen')
+                this.scene.start('MatchScreen', { match: new Match(new Player(), new Player()) })
             })
 
         particles.createEmitter({
