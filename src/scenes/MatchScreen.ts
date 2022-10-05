@@ -1,4 +1,5 @@
 import Phaser from 'phaser'
+import Background from '../assets/background.png'
 
 export default class MatchScreen extends Phaser.Scene {
 
@@ -11,10 +12,10 @@ export default class MatchScreen extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('match-background', 'assets/test.png')
+        this.load.image('background', Background)
     }
 
     create() {
-        this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'match-background')
+        this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'background')
     }
 }
