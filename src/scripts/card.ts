@@ -1,8 +1,11 @@
+import CardBackImage from '../assets/cardBack.png'
+
 /** Represents a card */
 export default class Card {
     name: string
     cost: number
     description: string
+    image: string
 
     /**
      * Creates a card.
@@ -14,6 +17,7 @@ export default class Card {
         this.name = cardName
         this.cost = cost
         this.description = description
+        this.image = CardBackImage
     }
 }
 
